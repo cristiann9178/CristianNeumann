@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    <h1>Areas de la empresa</h1>
+{% endblock title %}
+
+{% block content %}
+    {% for area in areas %}
+        <p>{{ area.descripcion }}</p>
+    {% endfor %}    
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}
+<h1>Pagina inicial</h1>
+{% endblock title %}
+
+{% block content %}
+<ul>
+    <li>
+        <a href="{% url 'empresa:home' %}">Empresa</a>
+    </li>
+</ul>
+{% endblock content %}
