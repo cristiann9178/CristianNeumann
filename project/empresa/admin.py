@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+admin.site.register(models.Areas)
+admin.site.register(models.Empleados)
+admin.site.register(models.Cargo)
