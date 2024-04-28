@@ -5,4 +5,5 @@ app_name = "empresa"
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('empleados/create/', views.empleado_create, name="empleado_create"),
 ]

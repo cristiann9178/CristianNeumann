@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    <h2>Ingresar emplead[</h2>
+{% endblock titulo %}
+
+{% block content %}
+    <p>Contenido</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+{% endblock content %}<p>Contenido</p>
