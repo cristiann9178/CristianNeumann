@@ -5,7 +5,19 @@
 {% endblock title %}
 
 {% block content %}
-    {% for area in areas %}
-        <p>{{ area.descripcion }}</p>
-    {% endfor %}    
+
+
+    <form action="{% url 'empresa:home' %}" method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+    </form> 
+    {% for resultado in resultados %}
+        <p>El DNI que ingresaste pertenece al empleado:</p>
+        <h3><strong>{{resultado.nombre}} {{resultado.apellido}}</strong></h3>
+        <p><strong>DNI: </strong>{{resultado.documento}}</p>
+        <p><strong>Correo: </strong>{{resultado.email}}</p>
+    {% endfor %}
+    {% for empleado in empleados %}
+        <p>{{ empleado.nombre }} {{empleado.apellido}}</p>
+    {% endfor %}   
+
 {% endblock content %}
