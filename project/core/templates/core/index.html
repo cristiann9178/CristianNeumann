@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
+{% load static %}
 {% block header_h1 %}
-    Bienvenida
+    Bienvenido/a
 {% endblock header_h1 %}
 {% block title %}
 <div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
@@ -8,10 +9,12 @@
   </div>
 {% endblock title %}
 {% block content %}
-
-<ul>
-    <li>
-        <a href="{% url 'empresa:empleados' %}">Ver empleados</a>
-    </li>
-</ul>
+<div class="mt-4" style="margin-bottom: 30px; text-align: center;">
+    <a href={% url 'empresa:empleados' %}><button type="button" class="btn btn-secondary btn-lg">Ver los empleados</button>
+    </a>
+</div>
+<div class="mt-2" style="margin-bottom: 10px; text-align: center;">
+    <a href={% url 'empresa:home' %}><button type="button" class="btn btn-secondary btn-lg">Ver áreas de la empresa</button>
+    </a>
+</div>
 {% endblock content %}

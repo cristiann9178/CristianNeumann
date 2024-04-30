@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
+    <h1>Empleados de la empresa</h1>
+  </div>
+{% endblock title %}
+{% block header_h1 %}
+    Nosotros
+{% endblock header_h1 %}
+{% block header_p %}
+    Aqui puedes ver un detalle de las personas que integran nuestro equipo
+{% endblock header_p %}
+{% block content %}
+{% for empleado in empleados %}
+<div class="accordion container mt-3" id="accordionExample-{{ forloop.counter }}">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-{{ forloop.counter }}">
+        {{empleado.nombre}} {{empleado.apellido}}  
+        </button>
+    </h2>
+    <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample-{{ forloop.counter }}">
+        <div class="accordion-body">
+                <li>
+                    Correo: {{empleado.email}}
+                </li>
+                <li>
+                    DNI: {{empleado.documento}}
+                </li>
+        </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<div class="mt-5" style="margin-bottom: 50px; text-align: center;">
+    <a href={% url 'empresa:empleado_create' %}><button type="button" class="btn btn-secondary btn-lg">Ingresar un nuevo empleado</button>
+    </a>
+</div>
+<div class="mt-2" style="margin-bottom: 100px; text-align: center;">
+    <a href={% url 'empresa:buscar_empleados' %}><button type="button" class="btn btn-secondary btn-lg">Buscar un empleado</button>
+    </a>
+</div>
+{% endblock content%}
+    
+

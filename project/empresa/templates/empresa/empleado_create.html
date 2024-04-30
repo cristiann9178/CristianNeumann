@@ -1,12 +1,14 @@
 {% extends 'core/base.html' %}
-{% block titulo %}
-    <h2>Ingresar empleado</h2>
-{% endblock titulo %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 50px; text-align: center;">
+    <h2>Crear un empleado en la base de datos</h2>
+  </div>
+{% endblock title %}
 
 {% block content %}
     <form action="" method="POST">
         {% csrf_token %}
         {{ form }}
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary mt-5">Guardar</button>
     </form>
-{% endblock content %}<p>Contenido</p>
+{% endblock content %}

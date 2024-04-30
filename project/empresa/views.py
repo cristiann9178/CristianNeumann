@@ -13,18 +13,21 @@ def empleado_create (request):
         try:
             if form.is_valid:
                 form.save()
-                return redirect("core:home")
+                return redirect("empresa:empleados")
         except ValueError:
                ...
     else:  # request.method == "GET"
         form = forms.EmpleadosCreateForm()
     return render(request, "empresa/empleado_create.html", context={"form": form})
 
-def ver_empleados(request):
+def empleados(request):
+    query = models.Empleados.objects.all()
+    contexto = {"empleados": query}
+    return render(request, "empresa/empleados.html", context=contexto)
+
+def buscar_empleado(request):
     consulta = request.GET.get("consulta", None)
     if consulta:
         query = models.Empleados.objects.filter(documento__icontains=consulta)
-        return render(request, "empresa/ver_empleados.html", {"resultados": query})
-    query = models.Empleados.objects.all()
-    contexto = {"empleados": query}
-    return render(request, "empresa/ver_empleados.html", context=contexto)
+        return render(request, "empresa/buscar_empleado.html", {"resultados": query})
+    return render(request, "empresa/buscar_empleado.html")

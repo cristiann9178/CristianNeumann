@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 50px; text-align: center;">
+    <h2>Crear un empleado en la base de datos</h2>
+  </div>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">
+<form action="{% url 'empresa:buscar_empleados' %}" method="get">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">DNI:</label>
+        <input type="text" class="form-control" name="consulta">
+        <div id="emailHelp" class="form-text">Por favor ingresa el DNI del empleado para buscarlo.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+</div>
+
+{% for resultado in resultados %}
+<div class="container align-content-center mt-5">
+    <p>El DNI que ingresaste pertenece al empleado:</p>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>{{resultado.nombre}} {{resultado.apellido}}</strong></li>
+      <li class="list-group-item"><strong>Cargo: </strong>{{resultado.cargo}}</li>
+      <li class="list-group-item"><strong>Correo: </strong>{{resultado.email}}</li>
+    </ul>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
