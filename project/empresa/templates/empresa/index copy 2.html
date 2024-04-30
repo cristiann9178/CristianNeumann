@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% block title %}
+<h1 class="bg-opacity-50 bg-secondary text-center shadow ">Título de la sección</h1>
+{% endblock title %}
+
+{% block content %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide" style="margin-bottom: 50px; margin-top: -5px">
+    <div class="carousel-indicators">
+        {% for area in areas %}
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for area in areas %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="10000">
+                <img src="https://www.eniun.com/wp-content/uploads/bootstrap-diseno.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ area.nombre }}</h5>
+                    <p>{{ area.descripcion }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock content %}

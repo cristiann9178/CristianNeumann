@@ -1,11 +1,9 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-    <h2>Ingresar emplead[</h2>
+    <h2>Ingresar empleado</h2>
 {% endblock titulo %}
 
 {% block content %}
-    <p>Contenido</p>
-
     <form action="" method="POST">
         {% csrf_token %}
         {{ form }}

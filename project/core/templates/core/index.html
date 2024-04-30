@@ -1,12 +1,17 @@
 {% extends 'core/base.html' %}
+{% block header_h1 %}
+    Bienvenida
+{% endblock header_h1 %}
 {% block title %}
-<h1>Pagina inicial</h1>
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
+    <h1>Pagina inicial</h1>
+  </div>
 {% endblock title %}
-
 {% block content %}
+
 <ul>
     <li>
-        <a href="{% url 'empresa:home' %}">Empresa</a>
+        <a href="{% url 'empresa:empleados' %}">Ver empleados</a>
     </li>
 </ul>
 {% endblock content %}

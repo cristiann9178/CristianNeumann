@@ -1,23 +1,32 @@
 {% extends 'core/base.html' %}
-
 {% block title %}
-    <h1>Areas de la empresa</h1>
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
+    <h1>Áreas de la empresa</h1>
+  </div>
 {% endblock title %}
-
+{% block header_h1 %}
+    La empresa
+{% endblock header_h1 %}
+{% block header_p %}
+    Resumen de todas las areas de la empresa
+{% endblock header_p %}
 {% block content %}
 
-
-    <form action="{% url 'empresa:home' %}" method="get">
-        <input type="text" name="consulta" placeholder="Buscar...">
-    </form> 
-    {% for resultado in resultados %}
-        <p>El DNI que ingresaste pertenece al empleado:</p>
-        <h3><strong>{{resultado.nombre}} {{resultado.apellido}}</strong></h3>
-        <p><strong>DNI: </strong>{{resultado.documento}}</p>
-        <p><strong>Correo: </strong>{{resultado.email}}</p>
-    {% endfor %}
-    {% for empleado in empleados %}
-        <p>{{ empleado.nombre }} {{empleado.apellido}}</p>
-    {% endfor %}   
-
+<section class="pt-4">
+    <div class="container px-lg-5">
+        <div class="row gx-lg-5">
+            {% for area in areas %}
+            <div class="col-lg-6 col-xxl-4 mb-5">
+                <div class="card bg-light border-0 h-100">
+                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"> </i></div>
+                        <h2 class="fs-4 fw-bold">{{area.nombre}}</h2>
+                        <p class="mb-0">{{area.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock content %}

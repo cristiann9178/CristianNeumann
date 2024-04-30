@@ -1,15 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</h>
+    <head>
+        {% include 'core/components/head.html' %}
+    </head>
 <body>
+    {% include 'core/components/navbar.html' %}
+    <!-- Header-->
+    <header class="bg-dark py-1">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center my-3">
+                        <h1 class="display-5 fw-bolder text-white mb-2">{% block header_h1 %}{% endblock header_h1 %}</h1>
+                        <p class="lead text-white-50 mb-4">{% block header_p %}{% endblock header_p %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     {% block title %}
     {% endblock title %}
 
     {% block content %}
     {% endblock content %}
+    {% include 'core/components/footer.html' %}
+    {% include 'core/components/scripts_bootstrap.html' %}
 </body>
+
 </html>
