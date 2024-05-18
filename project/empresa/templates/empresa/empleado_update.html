@@ -11,6 +11,7 @@
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+        <a href="{% url 'empresa:empleados' %}" class="btn btn-secondary mt-5">Volver</a>
     </form>
 </div>
 {% endblock content %}

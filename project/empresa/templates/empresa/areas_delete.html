@@ -12,13 +12,11 @@
         {% csrf_token %}
         {{ form }}
         <div class="card">
-            <div class="card-header">
-              Eliminar registro
-            </div>
             <div class="card-body">
               <h4 class="card-title" style="color:red"><strong>Advertencia!</strong></h4>
               <p class="card-text">Deseas eliminar <strong>{{area.nombre}}</strong> en la base de datos?</p>
               <button class="btn btn-primary">Eliminar</button>
+              <a href="{% url 'empresa:areas_detail' area.id %}" class="btn btn-secondary">Volver</a>
             </div>
         </div>
     </form>

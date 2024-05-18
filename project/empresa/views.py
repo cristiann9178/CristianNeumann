@@ -48,7 +48,7 @@ def areas_update(request, pk: int):
              return redirect("empresa:home")
      else:  # request.method == "GET"
          form = forms.AreasForm(instance=query)
-     return render(request, "empresa/areas_update.html", context={"form": form})
+     return render(request, "empresa/areas_update.html", context={"form": form , "query":query})
 
 def areas_delete(request, pk: int):
     query = models.Areas.objects.get(id=pk)

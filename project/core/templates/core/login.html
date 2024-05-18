@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block header_h1 %}
+    Bienvenido/a
+{% endblock header_h1 %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
+    <h1>Login</h1>
+  </div>
+{% endblock title %}
+{% block content %}
+<div class="container mt-4 ">
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="hidden" name="next" value="{% url 'core:home' %}" class="form-control">
+
+    <button type="submit" class="btn btn-primary mt-4">Iniciar Sesión</button>
+    <a href="{% url 'core:home' %}" class="btn btn-secondary mt-4">Cancelar</a>
+  </form>
+</div>
+{% endblock content %}
