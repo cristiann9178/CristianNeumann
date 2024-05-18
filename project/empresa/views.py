@@ -9,7 +9,7 @@ def home (request):
 
 def empleado_create (request):
     if request.method == "POST":
-        form = forms.EmpleadosCreateForm(request.POST)
+        form = forms.EmpleadosForm(request.POST)
         try:
             if form.is_valid:
                 form.save()
@@ -17,7 +17,7 @@ def empleado_create (request):
         except ValueError:
                ...
     else:  # request.method == "GET"
-        form = forms.EmpleadosCreateForm()
+        form = forms.EmpleadosForm()
     return render(request, "empresa/empleado_create.html", context={"form": form})
 
 
@@ -69,3 +69,14 @@ def buscar_empleado(request):
         query = models.Empleados.objects.filter(documento__icontains=consulta)
         return render(request, "empresa/buscar_empleado.html", {"resultados": query})
     return render(request, "empresa/buscar_empleado.html")
+
+def empleado_update(request, pk: int):
+     query = models.Empleados.objects.get(id=pk)
+     if request.method == "POST":
+         form = forms.EmpleadosForm(request.POST, instance=query)
+         if form.is_valid:
+             form.save()
+             return redirect("empresa:empleados")
+     else:  # request.method == "GET"
+         form = forms.EmpleadosForm(instance=query)
+     return render(request, "empresa/empleado_update.html", context={"form": form})

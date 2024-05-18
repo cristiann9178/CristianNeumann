@@ -2,7 +2,7 @@ from django import forms
 
 from . import models
 
-class EmpleadosCreateForm(forms.ModelForm):
+class EmpleadosForm(forms.ModelForm):
     class Meta:
         model = models.Empleados
         fields = "__all__"
