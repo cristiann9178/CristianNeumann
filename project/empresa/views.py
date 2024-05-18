@@ -50,6 +50,12 @@ def areas_update(request, pk: int):
          form = forms.AreasForm(instance=query)
      return render(request, "empresa/areas_update.html", context={"form": form})
 
+def areas_delete(request, pk: int):
+    query = models.Areas.objects.get(id=pk)
+    if request.method == "POST":
+        query.delete()
+        return redirect("empresa:home")
+    return render(request, "empresa/areas_delete.html", context={"area": query})
 
 def empleados(request):
     query = models.Empleados.objects.all()

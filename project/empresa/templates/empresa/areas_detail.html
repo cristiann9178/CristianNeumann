@@ -21,8 +21,12 @@
       </div>
 </section>
 
-<div class="mt-5" style="margin-bottom: 50px; text-align: center;">
+<div class="mt-5" style="text-align: center;">
     <a href={% url 'empresa:areas_update' area.id %}><button type="button" class="btn btn-secondary btn-lg">Editar area</button>
+    </a>
+</div> 
+<div class="mt-5" style="text-align: center;">
+    <a href={% url 'empresa:areas_delete' area.id %}><button type="button" class="btn btn-secondary btn-lg">Eliminar area</button>
     </a>
 </div> 
 {% endblock content %}
