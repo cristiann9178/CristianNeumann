@@ -35,6 +35,11 @@ def areas_create (request):
     return render(request, "empresa/areas_create.html", context={"form": form})
 
 
+def areas_detail(request, pk: int):
+     query = models.Areas.objects.get(id=pk)
+     return render(request, "empresa/areas_detail.html", {"area": query})
+
+
 def empleados(request):
     query = models.Empleados.objects.all()
     contexto = {"empleados": query}

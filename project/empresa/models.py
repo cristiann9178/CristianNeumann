@@ -25,7 +25,7 @@ class Empleados(models.Model):
      
 class Areas(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
-    descripcion = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=1000)
     ubicacion = models.CharField(max_length=100)
     empleados = models.ManyToManyField(Empleados, null=True, blank=True)
 

@@ -21,7 +21,7 @@
                     <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"> </i></div>
                         <h2 class="fs-4 fw-bold">{{area.nombre}}</h2>
-                        <p class="mb-0">{{area.descripcion}}</p>
+                        <a href="{% url 'empresa:areas_detail' area.id %}"><li>Ver detalle</li></a>
                     </div>
                 </div>
             </div>

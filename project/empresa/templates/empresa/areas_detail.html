@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block header_h1 %}
+    La empresa
+{% endblock header_h1 %}
+{% block header_p %}
+    Resumen de todas las areas de la empresa
+{% endblock header_p %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
+    <h1>Detalle del area</h1>
+  </div>
+{% endblock title %}
+{% block content %}
+
+<section class="pt-4 container">
+    <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{area.nombre}} </strong></h5>
+          <p class="card-text">{{area.descripcion}}</p>
+        </div>
+      </div>
+</section>
+{% endblock content %}
