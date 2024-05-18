@@ -80,3 +80,10 @@ def empleado_update(request, pk: int):
      else:  # request.method == "GET"
          form = forms.EmpleadosForm(instance=query)
      return render(request, "empresa/empleado_update.html", context={"form": form})
+
+def empleado_delete(request, pk: int):
+    query = models.Empleados.objects.get(id=pk)
+    if request.method == "POST":
+        query.delete()
+        return redirect("empresa:empleados")
+    return render(request, "empresa/empleado_delete.html", context={"empleado": query})

@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 50px; text-align: center;">
+    <h3>Eliminar empleado en la base de datos</h3>
+  </div>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-3 ">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <div class="card">
+            <div class="card-header">
+              Eliminar registro
+            </div>
+            <div class="card-body">
+              <h4 class="card-title" style="color:red"><strong>Advertencia!</strong></h4>
+              <p class="card-text">Deseas eliminar <strong>{{empleado.nombre}} {{empleado.apellido}}</strong> en la base de datos?</p>
+              <button class="btn btn-primary">Eliminar</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
