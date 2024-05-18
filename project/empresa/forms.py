@@ -15,7 +15,7 @@ class EmpleadosCreateForm(forms.ModelForm):
             "cargo": forms.Select(attrs={"class": "form-control"}),
         }
 
-class AreasCreateForm(forms.ModelForm):
+class AreasForm(forms.ModelForm):
     class Meta:
         model = models.Areas
         fields = "__all__"

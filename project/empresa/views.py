@@ -23,7 +23,7 @@ def empleado_create (request):
 
 def areas_create (request):
     if request.method == "POST":
-        form = forms.AreasCreateForm(request.POST)
+        form = forms.AreasForm(request.POST)
         try:
             if form.is_valid:
                 form.save()
@@ -31,13 +31,24 @@ def areas_create (request):
         except ValueError:
                ...
     else:  # request.method == "GET"
-        form = forms.AreasCreateForm()
+        form = forms.AreasForm()
     return render(request, "empresa/areas_create.html", context={"form": form})
 
 
 def areas_detail(request, pk: int):
      query = models.Areas.objects.get(id=pk)
      return render(request, "empresa/areas_detail.html", {"area": query})
+
+def areas_update(request, pk: int):
+     query = models.Areas.objects.get(id=pk)
+     if request.method == "POST":
+         form = forms.AreasForm(request.POST, instance=query)
+         if form.is_valid:
+             form.save()
+             return redirect("empresa:home")
+     else:  # request.method == "GET"
+         form = forms.AreasForm(instance=query)
+     return render(request, "empresa/areas_update.html", context={"form": form})
 
 
 def empleados(request):
