@@ -20,10 +20,26 @@ def empleado_create (request):
         form = forms.EmpleadosCreateForm()
     return render(request, "empresa/empleado_create.html", context={"form": form})
 
+
+def areas_create (request):
+    if request.method == "POST":
+        form = forms.AreasCreateForm(request.POST)
+        try:
+            if form.is_valid:
+                form.save()
+                return redirect("empresa:home")
+        except ValueError:
+               ...
+    else:  # request.method == "GET"
+        form = forms.AreasCreateForm()
+    return render(request, "empresa/areas_create.html", context={"form": form})
+
+
 def empleados(request):
     query = models.Empleados.objects.all()
     contexto = {"empleados": query}
     return render(request, "empresa/empleados.html", context=contexto)
+
 
 def buscar_empleado(request):
     consulta = request.GET.get("consulta", None)

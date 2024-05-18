@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block title %}
+<div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 50px; text-align: center;">
+    <h3>Crear un area en la base de datos</h3>
+  </div>
+{% endblock title %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+    </form>
+{% endblock content %}

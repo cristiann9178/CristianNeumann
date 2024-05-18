@@ -27,7 +27,7 @@ class Areas(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
     descripcion = models.CharField(max_length=200)
     ubicacion = models.CharField(max_length=100)
-    empleados = models.ManyToManyField(Empleados, null=True, blank=True, limit_choices_to={'areas__isnull':True})
+    empleados = models.ManyToManyField(Empleados, null=True, blank=True)
 
     class Meta:
         verbose_name="área"
