@@ -5,16 +5,32 @@
 {% endblock header_h1 %}
 {% block title %}
 <div class="d-flex bg-opacity-50 bg-secondary align-items-center justify-content-center " ali style="height: 70px; text-align: center;">
-    <h1>Pagina inicial</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href={% url 'empresa:empleados' %}><button type="button" class="btn btn-secondary btn-group-sm " style="margin-right: 20px;">Ver los integrantes del equipo</button></a>
+        <a href={% url 'empresa:home' %}><button type="button" class="btn btn-secondary btn-group-sm" style="margin-left: 20px;">Ver áreas de la empresa</button></a>
+      </div>
   </div>
 {% endblock title %}
 {% block content %}
-<div class="mt-4" style="margin-bottom: 30px; text-align: center;">
-    <a href={% url 'empresa:empleados' %}><button type="button" class="btn btn-secondary btn-lg">Ver los integrantes del equipo</button>
-    </a>
-</div>
-<div class="mt-2" style="margin-bottom: 10px; text-align: center;">
-    <a href={% url 'empresa:home' %}><button type="button" class="btn btn-secondary btn-lg">Ver áreas de la empresa</button>
-    </a>
-</div>
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://web.soluprime.io/blog/content/images/size/w2000/2021/01/7-ventajas-del-Outsourcing-TI-para-su-empresa.jpg.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.galapagostelecom.com/wp-content/uploads/2018/10/wallpaper-tecnologia.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://datatrust.sv/wp-content/uploads/2023/09/Datacenters1.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 {% endblock content %}

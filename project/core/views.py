@@ -1,4 +1,4 @@
-from django.contrib.admin.views.decorators import staff_member_required
+#from django.contrib.admin.views.decorators import staff_member_required
 #from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.http import HttpRequest, HttpResponse
@@ -23,3 +23,6 @@ def registrar(request: HttpRequest) -> HttpResponse:
     else:
         form = CustomUserCreationForm()
     return render(request, "core/registrar.html", {"form": form})
+
+def about (request):
+    return render(request, "core/about.html")

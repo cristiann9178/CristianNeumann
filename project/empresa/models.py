@@ -15,6 +15,7 @@ class Empleados(models.Model):
     documento = models.PositiveIntegerField(default=0, null=False)
     email = models.EmailField(max_length=50, unique=True)
     cargo = models.ForeignKey(Cargo, on_delete=models.SET_NULL, null=True, blank=True)
+    avatar = models.ImageField(upload_to="avatares", null=True, blank=True)
 
     class Meta:
         verbose_name="empleado"
