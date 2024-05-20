@@ -19,7 +19,7 @@ def registrar(request: HttpRequest) -> HttpResponse:
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, "core/index.html")
+            return render(request, "core/index.html", {"mensaje": "Usuario creado"})
     else:
         form = CustomUserCreationForm()
     return render(request, "core/registrar.html", {"form": form})
