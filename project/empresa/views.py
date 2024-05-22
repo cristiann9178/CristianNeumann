@@ -7,20 +7,6 @@ def home (request):
     contexto = {"areas": query}
     return render(request, "empresa/index.html", context=contexto)
 
-def empleado_create (request):
-    if request.method == "POST":
-        form = forms.EmpleadosForm(request.POST)
-        try:
-            if form.is_valid:
-                form.save()
-                return redirect("empresa:empleados")
-        except ValueError:
-               ...
-    else:  # request.method == "GET"
-        form = forms.EmpleadosForm()
-    return render(request, "empresa/empleado_create.html", context={"form": form})
-
-
 def areas_create (request):
     if request.method == "POST":
         form = forms.AreasForm(request.POST)
@@ -62,6 +48,18 @@ def empleados(request):
     contexto = {"empleados": query}
     return render(request, "empresa/empleados.html", context=contexto)
 
+def empleado_create (request):
+    if request.method == "POST":
+        form = forms.EmpleadosForm(request.POST)
+        try:
+            if form.is_valid:
+                form.save()
+                return redirect("empresa:empleados")
+        except ValueError:
+               ...
+    else:  # request.method == "GET"
+        form = forms.EmpleadosForm()
+    return render(request, "empresa/empleado_create.html", context={"form": form})
 
 def buscar_empleado(request):
     consulta = request.GET.get("consulta", None)
